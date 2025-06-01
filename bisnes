@@ -19,16 +19,15 @@ WantedBy=multi-user.target
 -
 systemctl daemon-reload
 systemctl enable --now node_exporter.ser
+----systemctl restart prometheus
+---systemctl enable grafana-server --now
+---systemctl status grafana-server
 ---
 google grafana dashboards
 node exporter resources
 copy id
-
-----systemctl restart prometheus
----systemctl enable grafana-server --now
----systemctl status grafana-server
-
-192.168.100.1:3000
+----
+http://192.168.100.1:3000
 admin admin
 ---
 connections
@@ -40,7 +39,8 @@ http://localhost:9090
 add
 --
 dashboards new import
-13702 url load
+11074 url load
 
 
-
+bind mon IN A 100.1
+restart 
