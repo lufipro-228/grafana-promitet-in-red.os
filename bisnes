@@ -1,0 +1,26 @@
+#h
+dnf install grafana golang-github-prometheus prometheus-node_exporter -y
+nano /etc/prometheus/prometheus.yml
+----
+'hq-srv:9100','br-srv:9100'
+----
+nano /etc/systemd/system/node_exporter.service
+--
+[Unit]
+Description=Node Exporter
+After=network.target
+[Service]
+#User=nodeusr
+#Group=nodeusr
+Type=simple
+ExecStart=/usr/bin/node_exporter
+[Install]
+WantedBy=multi-user.target
+-
+systemctl daemon-reload
+systemctl enable --now node_exporter.ser
+---
+google grafana dashboards
+node exporter resources
+
+
