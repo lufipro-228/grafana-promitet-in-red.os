@@ -22,5 +22,21 @@ systemctl enable --now node_exporter.ser
 ---
 google grafana dashboards
 node exporter resources
+copy id
+---
+192.168.100.1:3000
+admin admin
+---
+connections
+--
+Prometheus
+add
+--- conection
+http://localhost:9090
+add
+--
+dashboards new import
+13702 url load
+
 
 
